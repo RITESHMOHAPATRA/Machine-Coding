@@ -1,6 +1,8 @@
 package org.ritesh;
 
 import org.ritesh.enums.DeviceType;
+import org.ritesh.model.AppMetaData;
+import org.ritesh.model.AppVersionDetails;
 import org.ritesh.model.Device;
 import org.ritesh.model.Version;
 import org.ritesh.respository.AppVersionDetailsRepository;
@@ -11,6 +13,8 @@ import org.ritesh.rollout.BetaRolloutStrategy;
 import org.ritesh.rollout.RolloutStrategy;
 import org.ritesh.service.AppService;
 import org.ritesh.service.AppServiceImpl;
+
+import java.util.UUID;
 
 /**
  * Hello world!

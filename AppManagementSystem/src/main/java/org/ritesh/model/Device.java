@@ -47,4 +47,8 @@ public final class Device {
     public Version getoSVersion() {
         return oSVersion;
     }
+
+    public void setAppVersion(Version version) {
+        this.appVersion = version;
+    }
 }

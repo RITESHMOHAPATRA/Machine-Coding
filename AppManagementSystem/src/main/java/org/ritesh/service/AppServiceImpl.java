@@ -5,6 +5,7 @@ import org.ritesh.model.Device;
 import org.ritesh.respository.AppVersionDetailsRepository;
 import org.ritesh.respository.DeviceRepository;
 import org.ritesh.rollout.RolloutStrategy;
+import org.ritesh.util.AppUtil;
 
 public class AppServiceImpl implements AppService{
 
@@ -19,26 +20,26 @@ public class AppServiceImpl implements AppService{
     }
     @Override
     public void uploadNewVersion(AppVersionDetails appVersionDetails) {
-
+        appVersionDetailsRepository.uploadNewVersion(appVersionDetails);
     }
 
     @Override
     public String createUpdatePatch(AppVersionDetails oldVersion, AppVersionDetails newVersion) {
-        return null;
+        return AppUtil.createDiffPack(oldVersion.getVersion(),newVersion.getVersion());
     }
 
     @Override
     public void releaseVersion(AppVersionDetails newVersion) {
-
+       rolloutStrategy.rollout(newVersion);
     }
 
     @Override
     public boolean checkForInstall(Device device, AppVersionDetails appVersionDetails) {
-        return false;
+        return deviceRepository.checkForInstall(device,appVersionDetails);
     }
 
     @Override
     public boolean checkForUpdates(Device device, AppVersionDetails appVersionDetails) {
-        return false;
+        return deviceRepository.checkForUpdates(device,appVersionDetails);
     }
 }

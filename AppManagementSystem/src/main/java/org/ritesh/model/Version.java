@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.ToString;
 
-@Getter
 @ToString
 public final class Version {
     private final  int majorVersion;
@@ -16,5 +15,17 @@ public final class Version {
         this.majorVersion = majorVersion;
         this.minorVersion = minorVersion;
         this.patchVersion = patchVersion;
+    }
+
+    public int getMajorVersion() {
+        return majorVersion;
+    }
+
+    public int getMinorVersion() {
+        return minorVersion;
+    }
+
+    public int getPatchVersion() {
+        return patchVersion;
     }
 }
